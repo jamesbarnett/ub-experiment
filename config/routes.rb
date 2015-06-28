@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  devise_for :users
+  scope '/api' do
+    scope '/v1' do
+      scope '/users' do
+        get  '/' => 'api_users#index'
+        get  '/:id' => 'api_users#show'
+        post '/' => 'api_users#create'
+        put  '/:id' => 'api_users#update'
+        delete '/:id' => 'api_users#destroy'
+      end
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

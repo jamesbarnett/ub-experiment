@@ -1,10 +1,18 @@
-require_relative '../request'
-require_relative '../entities/user'
-require_relative '../repositories/user_repository'
+# require_relative '../request'
+# require_relative '../entities/user'
+# require_relative '../repositories/user_repository'
 
-class UserCreator
-  def self.run(user_repository, request)
-    user_repository.save(User.new(email: request.email, password: request.password,
-                                  password_confirmation: request.password_confirmation))
+module Services
+  class UserCreator < Struct.new(:listener)
+    def run(user_repository, request)
+      user = Entities::User.new(request.to_h)
+
+      if user.password == user.password_confirmation &&
+        user_repository.create(user.to_h)
+        listener.create_user_succeeded(user)
+      else
+        listener.create_user_failed(user)
+      end
+    end
   end
 end
