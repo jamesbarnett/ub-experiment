@@ -8,7 +8,7 @@ module Services
       user = Entities::User.new(request.to_h)
 
       if user.password == user.password_confirmation &&
-        user_repository.create(user.to_h)
+        Repository.save!(user.to_h)
         listener.create_user_succeeded(user)
       else
         listener.create_user_failed(user)

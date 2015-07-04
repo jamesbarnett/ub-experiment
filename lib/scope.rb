@@ -1,7 +1,7 @@
 class Scope
   attr_accessor :mapper, :scope
 
-  def intialiize(mapper)
+  def intialize(mapper)
     @mapper = mapper
     @scope = mapper.export_class
   end

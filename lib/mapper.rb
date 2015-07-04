@@ -3,7 +3,8 @@ class Mapper
     attr_reader :base_class, :export_class
 
     def maps(mapping)
-      @base_class, @export_class = mapping.first
+      require 'byebug' ; byebug
+      @base_class, @export_class = *mapping.first
     end
 
     def map(object)
