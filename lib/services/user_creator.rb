@@ -1,14 +1,12 @@
-# require_relative '../request'
-# require_relative '../entities/user'
-# require_relative '../repositories/user_repository'
-
 module Services
   class UserCreator < Struct.new(:listener)
-    def run(user_repository, request)
+    prepend Repositories
+
+    def run(request)
       user = Entities::User.new(request.to_h)
 
       if user.password == user.password_confirmation &&
-        Repository.save!(user.to_h)
+        UserRepository.save!(user)
         listener.create_user_succeeded(user)
       else
         listener.create_user_failed(user)

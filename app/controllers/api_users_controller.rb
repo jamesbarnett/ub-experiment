@@ -7,7 +7,7 @@ class ApiUsersController < ApiBaseController
 
   def create
     user_creator = Services::UserCreator.new(self)
-    user_creator.run(User, Request.new(params[:user]))
+    user_creator.run(Request.new(params[:user]))
   end
 
   def index

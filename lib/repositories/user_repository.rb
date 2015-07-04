@@ -1,16 +1,9 @@
+require 'repository'
+
 module Repositories
-  class UserRepository
-    attr_accessor :users
-    def initialize
-      self.users = []
-    end
-
-    def count
-      users.size
-    end
-
-    def create user
-      self.users << user
+  class UserRepository < ::Repository
+    class_eval do
+      self.mapper = Mappers::UserMapper
     end
   end
 end
