@@ -1,3 +1,8 @@
+alias require_dependency require
+
+$: << '../lib'
+$: << '../lib/entities'
+
 Dir["./lib/**/*.rb"].each { |f| require f }
 
 RSpec.configure do |config|
