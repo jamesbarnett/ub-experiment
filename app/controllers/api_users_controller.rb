@@ -1,4 +1,4 @@
-require 'byebug'
+require_dependency './lib/services/user_creator'
 
 class ApiUsersController < ApiBaseController
   def show
@@ -6,7 +6,7 @@ class ApiUsersController < ApiBaseController
   end
 
   def create
-    user_creator = Services::UserCreator.new(self)
+    user_creator = ::UserCreator.new(self)
     user_creator.run(Request.new(params[:user]))
   end
 

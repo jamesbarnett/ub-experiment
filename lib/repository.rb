@@ -12,7 +12,8 @@ class Repository
     end
   end
 
-  def self.method_missing(method_name, *args, &block)
-    Scope.new(mapper).send(method_name, *args, &block)
-  end
+  # def self.method_missing(method_name, *args, &block)
+  #   puts "method_name: #{method_name}"
+  #   Scope.new(mapper).send(method_name, *args, &block)
+  # end
 end

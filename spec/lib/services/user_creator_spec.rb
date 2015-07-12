@@ -6,7 +6,7 @@ describe UserCreator do
     let(:listener) { double('listener') }
 
     before(:example) do
-      allow(UserRepository).to receive(:save!) { true }
+      allow(UserRepository).to receive(:add!) { true }
     end
 
     it 'notifies the listener when a user is successfully created' do

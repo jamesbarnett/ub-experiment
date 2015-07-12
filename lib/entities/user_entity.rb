@@ -10,7 +10,7 @@ class UserEntity
   attribute :password_confirmation, String
   attribute :encrypted_password, String
   attribute :reset_password_token, String
-  attribute :reset_password_token_sent_at, DateTime
+  attribute :reset_password_sent_at, DateTime
   attribute :remember_created_at, DateTime
   attribute :sign_in_count, Integer
   attribute :current_sign_in_at, DateTime

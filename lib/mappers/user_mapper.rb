@@ -1,4 +1,2 @@
-module Mappers
-  class UserMapper < Mapper
-  end
+class UserMapper < Mapper
 end
