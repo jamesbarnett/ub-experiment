@@ -5,4 +5,10 @@ require_dependency "#{ROOT_DIR}/lib/entities/user_entity"
 require_dependency "#{ROOT_DIR}/lib/mappers/user_mapper"
 require_dependency "#{ROOT_DIR}/lib/repositories/user_repository"
 
+class UserMapper
+  class_eval do
+    self.maps([[::UserEntity, ::User]])
+  end
+end
+
 UserRepository.mapper = UserMapper
